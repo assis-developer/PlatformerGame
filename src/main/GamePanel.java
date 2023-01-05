@@ -114,7 +114,6 @@ public class GamePanel extends JPanel {
         if (moving) {
             switch (playerDir) {
                 case LEFT:
-                    System.out.println("LEFT");
                     xDelta -= 5;
                     break;
                 case UP:
@@ -131,14 +130,17 @@ public class GamePanel extends JPanel {
 
     }
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
+    public void updateGame() {
         updateAnimationTick();
         setAnimation();
         updatePos();
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
         g.drawImage(animations[playerAction][aniIndex], (int) xDelta, (int) yDelta, 256, 160, null);
     }
+
 
 }
